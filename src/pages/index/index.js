@@ -15,7 +15,8 @@ import { bindActionCreators } from 'redux'
  */
 function mapStateToProps(state) {
     return {
-        list: state.asyncApi.toJS()
+        list: state.asyncApi.toJS(),
+        counter:state.counter.toJS(),
     }
 }
 function mapDispatchToProps(dispatch) {
@@ -39,7 +40,7 @@ export default class Index extends Component {
       // list:[],
       chooseIdx:0,
       menus:[{
-        text:'todoList',
+        text:'counter',
         path:'/pages/counter/index'
       },{
         text:'second',
@@ -119,6 +120,7 @@ export default class Index extends Component {
           }
         </View>
         <View>选中：{chooseIdx}</View>
+        <View>counterNumber:{this.props.counter.num}</View>
       </View>
     )
   }
