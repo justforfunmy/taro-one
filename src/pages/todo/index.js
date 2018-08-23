@@ -49,6 +49,7 @@ export default class Todo extends Component{
     }
 
     changeStatus = (item) =>{
+        console.log(item)
         if(item.status === 0){
             this.props.finish(item)
         }else{
@@ -62,14 +63,15 @@ export default class Todo extends Component{
         return (
             <View className='all-center flex-col container'>
                 <View>todo List</View>
-                <View className='all-center'>
+                <View className='all-center' style='border-bottom:1px solid grey'>
                     <View className='fg'>
                         <Input placeholder='请输入事件' value={this.state.inputVal} onInput={this.handleInput}/>
                     </View>
                     <Button onClick={this.handleAdd.bind(this,this.state.inputVal)}>添加</Button>
+                    <Button onClick={this.props.clear}>清空</Button>
                 </View>
                 {
-                    todoList.items.map((val,index)=>{
+                    todoList.map((val,index)=>{
                         return (
                             <View key={index} className='all-center list-item'>
                                 <View className='fg' style={{textDecoration:val.status===1?'line-through':'none'}}>{index}.{val.text}</View>

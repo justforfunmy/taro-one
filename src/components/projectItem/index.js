@@ -10,11 +10,9 @@ export default class ProjectItem extends Component{
         }
     }
     componentWillMount(){
-        console.log(this.props)
     }
 
     handleClick = (item,idx,e) => {
-        console.log(item)
         this.props.onChange(idx)
     }
     render(){

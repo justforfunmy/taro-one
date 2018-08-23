@@ -1,4 +1,4 @@
-import {ADD,FINISH,UNFINISH,DELETE} from '../constants/todo'
+import {ADD,FINISH,UNFINISH,DELETE,CLEAR} from '../constants/todo'
 
 
 export const add = (payload) => {
@@ -23,8 +23,15 @@ export const unFinish = (payload) => {
 }
 
 export const deleteItem = (id) => {
+    console.log(id)
     return {
         type:DELETE,
         id
+    }
+}
+
+export const clear = () => {
+    return {
+        type:CLEAR
     }
 }
