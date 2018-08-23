@@ -1,4 +1,4 @@
-export const ADD = 'ADD'
+export const ADDITEM = 'ADDITEM'
 export const DELETE = 'DELETE'
 export const FINISH = 'FINISH'
 export const UNFINISH = 'UNFINISH'

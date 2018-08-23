@@ -1,10 +1,10 @@
 import { createReducer } from 'redux-immutablejs'
 import { fromJS} from 'immutable'
-import {ADD,DELETE,FINISH,UNFINISH,CLEAR} from '../constants/todo'
+import {ADDITEM,DELETE,FINISH,UNFINISH,CLEAR} from '../constants/todo'
 import utils from '../../utils'
 
 export default createReducer(fromJS([]),{
-    [ADD]:(state,action)=>{
+    [ADDITEM]:(state,action)=>{
         const listState = state.toJS();
         let id = utils.getIdCode();
         

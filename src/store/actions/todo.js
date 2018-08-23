@@ -1,9 +1,9 @@
-import {ADD,FINISH,UNFINISH,DELETE,CLEAR} from '../constants/todo'
+import {ADDITEM,FINISH,UNFINISH,DELETE,CLEAR} from '../constants/todo'
 
 
 export const add = (payload) => {
     return {
-        type:ADD,
+        type:ADDITEM,
         payload
     }
 }
