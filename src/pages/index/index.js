@@ -44,6 +44,9 @@ export default class Index extends Component {
       },{
         text:'second',
         path:'/pages/second/index'
+      },{
+        text:'todoList',
+        path:'/pages/todo/index'
       }]
     }
     // this.onClick = this.onClick.bind(this)
