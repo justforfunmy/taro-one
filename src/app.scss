@@ -2,3 +2,39 @@ page{
     padding:0;
     margin:0;
 }
+
+view,View{
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+
+.flex{
+    display: flex;
+}
+
+.a-center{
+    align-items: center;
+}
+
+.j-center{
+    justify-content: center;
+}
+
+.all-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fg{
+    flex:auto
+}
+
+.flex-col{
+    flex-direction: column;
+}
+
+.container{
+    width:100%;
+}

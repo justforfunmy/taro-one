@@ -13,7 +13,8 @@ class App extends Component {
     pages: [
       'pages/index/index',
       'pages/second/index',
-      'pages/counter/index'
+      'pages/counter/index',
+      'pages/todo/index'
     ],
     window: {
       backgroundTextStyle: 'light',

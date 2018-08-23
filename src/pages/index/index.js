@@ -1,7 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View,Button} from '@tarojs/components'
 import './index.scss'
-import Api from '../../api'
 import ProjectItem from '../../components/projectItem'
 import Header from '../../components/header'
 
@@ -35,7 +34,6 @@ export default class Index extends Component {
   constructor(){
     super(...arguments);
     this.state = {
-      title:'Hello',
       isToggleOn: true,
       // list:[],
       chooseIdx:0,
@@ -45,6 +43,9 @@ export default class Index extends Component {
       },{
         text:'second',
         path:'/pages/second/index'
+      },{
+        text:'todoList',
+        path:'/pages/todo/index'
       }]
     }
     // this.onClick = this.onClick.bind(this)
@@ -77,7 +78,6 @@ export default class Index extends Component {
     // console.log(res)
     const {list,getList} = this.props;
     await getList()
-    console.log(list)
   }
 
   go = (path) => {
@@ -119,7 +119,7 @@ export default class Index extends Component {
             })
           }
         </View>
-        <View>选中：{chooseIdx}</View>
+        <View>选中：{this.state.chooseIdx}</View>
         <View>counterNumber:{this.props.counter.num}</View>
       </View>
     )
