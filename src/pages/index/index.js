@@ -1,7 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View,Button} from '@tarojs/components'
 import './index.scss'
-import Api from '../../api'
 import ProjectItem from '../../components/projectItem'
 import Header from '../../components/header'
 
@@ -42,7 +41,7 @@ export default class Index extends Component {
         text:'counter',
         path:'/pages/counter/index'
       },{
-        text:'second',
+        text:'Immutable.js',
         path:'/pages/second/index'
       },{
         text:'todoList',
