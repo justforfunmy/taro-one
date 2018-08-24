@@ -150,8 +150,8 @@ export default class Second extends Component{
     }
 
     takeDeep = () =>{
-        
-    }
+        //lodash cloneDeep
+    } 
     
     render(){
         return (
