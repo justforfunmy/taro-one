@@ -2,9 +2,13 @@ import Taro,{Component} from '@tarojs/taro'
 import {View,Button,Input} from '@tarojs/components'
 import './index.scss'
 
+
+
 import {connect} from '@tarojs/redux'
 import * as Actions from '../../store/actions/todo';
 import { bindActionCreators } from 'redux'
+
+
 /* 
   *connect 方法接受两个参数 mapStateToProps 与 mapDispatchToProps
   *mapStateToProps，函数类型，接受最新的 state 作为参数，用于将 state 映射到组件的 props
@@ -44,7 +48,7 @@ export default class Todo extends Component{
             })
         }else{
             this.props.add({text:item,status:0})
-            console.log(this.props.todoList)
+            console.log(this.props.todoList) 
         }
     }
 
@@ -73,7 +77,7 @@ export default class Todo extends Component{
                 {
                     todoList.map((val,index)=>{
                         return (
-                            <View key={index} className='all-center list-item'>
+                            <View key={val.id} className='all-center list-item'>
                                 <View className='fg' style={{textDecoration:val.status===1?'line-through':'none'}}>{index}.{val.text}</View>
                                 <Button onClick={this.props.deleteItem.bind(this,val.id)}>删除</Button>
                                 <Button onClick={this.changeStatus.bind(this,val)}>{val.status===0?'完成':'未完成'}</Button>

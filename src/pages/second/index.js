@@ -109,9 +109,54 @@ export default class Second extends Component{
         例，若传入-1，则将size-1的值设为value。
         若传入的number的值超过了List的长度，则将List自动补全为传入的number的值，将number设置为value，其余用undefined补全。
         注：跟js中不同，List中不存在空位，[,,,],List中若没有值，则为undefined。
+        setIn设置深层结构中某属性的值
          */
         const foo = fromJS({a:{b:1}});
         const bar = fromJS([1,2,[4,5]]);
+        console.log((foo.set('c','abc')).toJS(),(bar.set(5,'abc')).toJS())
+        console.log((foo.setIn(['a','b'],'123')).toJS(),(bar.setIn([2,1],'abc')).toJS())
+    }
+
+    takeDel = () => {
+        /* 
+        delete用来删除第一层结构中的属性
+        deleteIn用来删除深层数据，用法参考setIn
+        deleteAll用来删除Map中的多个key
+         */
+
+        const foo = fromJS({a:{b:1}});
+        const bar = fromJS([1,2,[4,5]]);
+        console.log((foo.delete('c')).toJS(),(bar.delete(1)).toJS())
+        console.log((foo.deleteIn(['a','b'])).toJS(),(bar.deleteIn([2,1])).toJS())
+        // console.log((foo.deleteAll(['a'])).toJS())
+    }
+
+    takeUpdate = () => {
+        /* 对对象中的某个属性进行更新，可对原数据进行相关操作 updateIn()用法参考setIn*/
+        ////List
+        const list = List([ 'a', 'b', 'c' ])
+        const result = list.update(2, val => val.toUpperCase())
+        console.log(list.toJS(),result.toJS())
+
+        ///Map
+        const aMap = Map({ key: 'value' })
+        const newMap = aMap.update('key', value => value + value)
+        console.log(aMap.toJS(),newMap.toJS())
+    }
+
+    takeClear = () => {
+        /* 清除所有数据 */
+        const list = List([ 'a', 'b', 'c' ])
+        list.clear()
+    }
+
+    takeList = () => {
+        const list = List([1,2,3,4,5,6]);
+        console.log(list.push('111'),list.pop(),list.unshift(1),list.shift(),list.insert(4,'333'))
+
+
+        /* List中还有一个特有的方法用法设置List的长度，setSize()
+        List([]).setSize(2).toJS() //[undefined,undefined] */
     }
 
     takeShallow = () => {
@@ -155,7 +200,7 @@ export default class Second extends Component{
     
     render(){
         return (
-            <View>
+            <View className='main'>
                 <View>Immutable.js</View>
                 <View>基本用法：</View>
                 <Button onClick={this.takeOld}>原来的写法</Button>
@@ -170,7 +215,17 @@ export default class Second extends Component{
                 <View>数据修改：</View>
                 <View>这里对于数据的修改，是对原数据进行操作后的值赋值给一个新的数据，并不会对原数据进行修改，因为Immutable是不可变的数据类型。</View>
                 <Button onClick={this.takeSet}>set;setIn</Button>
-
+                <Button onClick={this.takeDel}>delete;deleteIn;deleteAll</Button>
+                <Button onClick={this.takeUpdate}>update;updateIn</Button>
+                <Button onClick={this.takeClear}>clear</Button>
+                <View>List:</View>
+                <View>List对应的数据结构是js中的数组，所以数组的一些方法在Immutable中也是通用的，比如push，pop,shift，unshift，insert。</View>
+                <View>push()：在List末尾插入一个元素</View>
+                <View>pop(): 在List末尾删除一个元素</View>
+                <View>unshift: 在List首部插入一个元素</View>
+                <View>shift: 在List首部删除一个元素</View>
+                <Veiw>insert：在List的index处插入元素</Veiw>
+                <Button onClick={this.takeList}>list 操作</Button>
                 <View>拷贝</View>
                 <Button onClick={this.takeShallow}>shallow copy</Button>
                 <Button onClick={this.takeDeep}>deep copy</Button>

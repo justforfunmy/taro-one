@@ -100,7 +100,7 @@ export default class Index extends Component {
     
     return (
       <View className='index' style='text-align:center'>
-        <Header></Header>
+        <Header ></Header>
         <Button onClick={this.onClick}>{this.state.isToggleOn ? 'ON' : 'OFF'}</Button>
         {
           this.state.menus.map((val,index)=>{

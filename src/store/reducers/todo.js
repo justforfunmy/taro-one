@@ -7,17 +7,19 @@ export default createReducer(fromJS([]),{
     [ADDITEM]:(state,action)=>{
         const listState = state.toJS();
         let id = utils.getIdCode();
-        
+        let newState = state.push({...action.payload,id})
+        console.log(newState.toJS())
         return state.merge([...listState,{...action.payload,id}])
-        // let length = state.size;
-        // console.log(length)
+        
         // return state.push({...action.payload,id})
     },
     [FINISH]:(state,action)=>{
         // const listState = state.toJS();
         // let idx = listState.findIndex(val=>val.id===action.payload.id);
-        let idx = state.findIndex(val=>val.get('id') == action.payload.id)
-        console.log(idx)
+        let idx = state.findIndex(val=>{
+            console.log(val)
+            return val.get('id') == action.payload.id
+        })
         return idx!==-1?state.setIn([idx,'status'],1):state
     },
     [UNFINISH]:(state,action) => {
