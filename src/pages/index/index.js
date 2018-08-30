@@ -46,6 +46,12 @@ export default class Index extends Component {
       },{
         text:'todoList',
         path:'/pages/todo/index'
+      },{
+        text:'es6',
+        path:'/pages/es6/index'
+      },{
+        text:'taro ui',
+        path:'/pages/taroUI/index'
       }]
     }
     // this.onClick = this.onClick.bind(this)
@@ -105,7 +111,7 @@ export default class Index extends Component {
         {
           this.state.menus.map((val,index)=>{
             return (
-              <Button onClick={this.go.bind(this,val.path)} key={index}>导航到{val.text}页</Button>
+              <Button onClick={this.go.bind(this,val.path)} key={index}>{val.text}</Button>
             )
           })
         }

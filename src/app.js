@@ -14,7 +14,9 @@ class App extends Component {
       'pages/index/index',
       'pages/second/index',
       'pages/counter/index',
-      'pages/todo/index'
+      'pages/todo/index',
+      'pages/es6/index',
+      'pages/taroUI/index'
     ],
     window: {
       backgroundTextStyle: 'light',
