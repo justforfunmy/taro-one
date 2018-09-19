@@ -2,6 +2,7 @@ import Taro,{Component} from '@tarojs/taro'
 import {View} from '@tarojs/components'
 import './index.scss'
 import Header from '../../components/header'
+import Flex from '../../components/flex'
 
 export default class TaroUi extends Component{
     config = {
@@ -9,14 +10,20 @@ export default class TaroUi extends Component{
     }
     constructor(){
         super(...arguments)
-
+        this.state = {
+            test:'test'
+        }
     }
     render(){
         return (
-            <View className='container'>
-                <Header title='taro ui'></Header>
-                <View></View>
-            </View>
+            <Flex type='allCenter' direction='column'>
+                <Header title='flex'></Header>
+                <Flex type='allCenter'>
+                    <View className='fg'>{this.state.test}</View>
+                    <View>rest of content</View>
+                </Flex>
+                
+            </Flex>
         )
     }
 }

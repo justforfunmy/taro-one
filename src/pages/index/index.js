@@ -1,5 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View,Button} from '@tarojs/components'
+import API from '../../api'
 import './index.scss'
 import ProjectItem from '../../components/projectItem'
 import Header from '../../components/header'
@@ -99,6 +100,11 @@ export default class Index extends Component {
     })
   }
 
+  login = async () =>{
+    let res = await API.login();
+    console.log(res)
+  }
+
   
 
   render () {
@@ -128,6 +134,8 @@ export default class Index extends Component {
         </View>
         <View>选中：{this.state.chooseIdx}</View>
         <View>counterNumber:{this.props.counter.num}</View>
+
+        <Button onClick={this.login}>login</Button>
       </View>
     )
   }
