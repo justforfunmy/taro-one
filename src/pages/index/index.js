@@ -35,6 +35,7 @@ export default class Index extends Component {
   constructor(){
     super(...arguments);
     this.state = {
+      timeStamp:0,
       isToggleOn: true,
       // list:[],
       chooseIdx:0,
@@ -61,6 +62,10 @@ export default class Index extends Component {
   componentWillMount () { }
 
   componentDidMount () {
+    let time = new Date('2018/09/20 15:20:20')
+    this.setState({
+      timeStamp:time.getTime()
+    })
   }
 
   componentWillUnmount () { }
@@ -136,6 +141,7 @@ export default class Index extends Component {
         <View>counterNumber:{this.props.counter.num}</View>
 
         <Button onClick={this.login}>login</Button>
+        <View>timeStamp:{this.state.timeStamp}</View>
       </View>
     )
   }
